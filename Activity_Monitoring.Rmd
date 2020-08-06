@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 
 This section computes the total number of steps taken per day and the summary statistics for the total number of steps per day. 
 
-```{r steps mean}
+```{r stepsmean}
 activity <- read.csv("activity.csv")
 
 stepCount <- aggregate(activity$steps ~ activity$date, activity, sum)
@@ -39,7 +39,7 @@ The mean number of steps taken per day is 10766 and the median is 10765.
 
 This section constructs a time series plot of the 5-minute interval and the average numner of steps taken, averaged across all days.
 
-```{r daily activity pattern}
+```{r dailyactivitypattern}
 stepsInterval <- aggregate(steps ~ interval, activity, mean)
 
 plot(stepsInterval$interval, stepsInterval$steps, type = "l", main = "Average Steps All Days", xlab = "Interval", ylab = "Average Steps") 
@@ -54,7 +54,7 @@ Interval 835 contains the maximum number of steps on average across all days in 
 
 This section imputes the missing values in the dataset by replacing NA values with the mean value of steps for that 5-minute interval.
 
-```{r imputing missing values}
+```{r imputingmissingvalues}
 sum(is.na(activity))
 
 activityNA <- activity
@@ -89,7 +89,7 @@ The mean values remain the same but there is an increase in the median value whe
 
 This section plots a time series graph of how the average number of steps taken varies across the time intervals for weekdays and weekends.
 
-```{r weekdays vs weekends}
+```{r weekdaysvsweekends}
 noNAData$day <- weekdays(as.Date(noNAData$date))
 
 for (i in 1:nrow(noNAData)) {

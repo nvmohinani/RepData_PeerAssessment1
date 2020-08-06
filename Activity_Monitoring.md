@@ -30,7 +30,7 @@ colnames(stepCount) <- c("Date", "Total Steps")
 hist(stepCount$`Total Steps`, main = "Total Steps", xlab = "Step Count")
 ```
 
-![](Activity_Monitoring_files/figure-html/steps mean-1.png)<!-- -->
+![](Activity_Monitoring_files/figure-html/stepsmean-1.png)<!-- -->
 
 ```r
 summary(stepCount)
@@ -59,7 +59,7 @@ stepsInterval <- aggregate(steps ~ interval, activity, mean)
 plot(stepsInterval$interval, stepsInterval$steps, type = "l", main = "Average Steps All Days", xlab = "Interval", ylab = "Average Steps") 
 ```
 
-![](Activity_Monitoring_files/figure-html/daily activity pattern-1.png)<!-- -->
+![](Activity_Monitoring_files/figure-html/dailyactivitypattern-1.png)<!-- -->
 
 ```r
 max_steps <- which.max(stepsInterval$steps)
@@ -105,7 +105,7 @@ stepsDaily <- aggregate(steps ~ date, noNAData, sum)
 hist(stepsDaily$steps, main = "Total Steps Daily", xlab = "Steps per day")
 ```
 
-![](Activity_Monitoring_files/figure-html/imputing missing values-1.png)<!-- -->
+![](Activity_Monitoring_files/figure-html/imputingmissingvalues-1.png)<!-- -->
 
 ```r
 mean(stepsDaily$steps)
@@ -168,7 +168,7 @@ library(ggplot2)
 ggplot(data = noNAData, aes(fill = day, y = steps, x = interval)) + geom_line() + facet_wrap(~day) + ggtitle("") + labs(x = "Interval", y = "Steps")
 ```
 
-![](Activity_Monitoring_files/figure-html/weekdays vs weekends-1.png)<!-- -->
+![](Activity_Monitoring_files/figure-html/weekdaysvsweekends-1.png)<!-- -->
 
 It is apparent that on weekdays, most activity occurs in the earlier hours of the day, and on weekends most activity occurs in the second half of the day. 
 
